@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo_app</title>
+</head>
+<body>
+    <h1 align="center">Todo App</h1>
+    <form action="/todo" method="post" align="center">
+        <label>Todo:</label>
+        <input type="text" name="fname" placeholder="Enter Your Todo">
+        <button type="submit">Add+</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <table border="1" width="800" align="center">
+        <thead>
+            <tr align="center">
+                <td>Id</td>
+                <td>Todo</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% row.forEach((t,index)=>{ %>
+                <tr>
+                    <th><%= index+1 %></th>
+                    <th><%= t.title %></th>
+                    <th>
+                        <a href="/edit/<%= t._id %>">Edit</a>
+                        <a href="/delete/<%= t._id %>">Delete</a>
+                    </th>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
